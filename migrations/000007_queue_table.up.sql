@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS queue (
+    id SERIAL NOT NULL PRIMARY KEY,
+    doctor_id INT NOT NULL REFERENCES doctors(id),
+    client_id INT NOT NULL REFERENCES clients(id),
+    status VARCHAR(100),
+    queue_number INT NOT NULL DEFAULT(1),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    deleted_at TIMESTAMP NULL
+)

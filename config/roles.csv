@@ -1,0 +1,42 @@
+p, unauthorized, /v1/swagger/*, GET
+p, unauthorized, /, GET
+p, unauthorized, /v1/admin/login, POST
+p, unauthorized, /v1/doctor/login, POST
+p, unauthorized, /v1/admin, POST
+p, unauthorized, /v1/service/{id}, GET
+p, unauthorized, /v1/services, GET
+p, unauthorized, /v1/doctors/{clinic_id}, GET
+p, unauthorized, /v1/doctors/search/{clinic_id}, GET
+p, unauthorized, /v1/doctor/{id}, GET
+p, unauthorized, /v1/clinics, GET
+p, unauthorized, /v1/clinic/{id}, GET
+p, unauthorized, /v1/client/login, POST
+p, unauthorized, /v1/client, POST
+p, unauthorized, /v1/clients, GET
+p, admin, /v1/*, POST
+p, admin, /v1/*, GET
+p, admin, /v1/*, PUT
+p, admin, /v1/*, DELETE
+p, doctor, /v1/doctor, PUT
+p, client, /v1/client/{id}, GET
+p, client, /v1/queue, POST
+p, client, /v1/client, PUT
+p, admin,  /v1/clinics/delete/{id}, DELETE
+p, admin,  /v1/clinics,  PUT
+p, admin,   /v1/service/delete/{id}, DELETE
+p, admin,   /v1/service, PUT
+p, doctor, /v1/media/file-upload, POST
+p, unauthorized, /v1/media/file-upload, POST
+p, unauthorized, /v1/doctor/service/{clinic_id}, GET
+p, client, /v1/queue/cancel, DELETE
+p, unauthorized, /v1/doctors/service/{service_id}, GET
+p, doctor, /v1/doctor/customers/{doctor_id}, GET
+p,admin,   /v1/service/delete/{id}, DELETE
+p,admin,   /v1/service, PUT
+p, client, /v1/korik, POST
+p, client, /v1/korik, PUT
+p,client, /v1/korik, GET
+p,client, /v1/korik/{id}, GET
+p,client, /v1/korik/{id}, DELETE
+p,client, /v1/korik/user/{id},GET
+p,client, /v1/korik/{id}, DELETE

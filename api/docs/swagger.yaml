@@ -1,0 +1,2211 @@
+basePath: /v1
+definitions:
+  http.Response:
+    properties:
+      data: {}
+      description:
+        type: string
+      status:
+        type: string
+    type: object
+  models.AdminLoginReq:
+    properties:
+      password:
+        type: string
+      username:
+        type: string
+    type: object
+  models.AdminReq:
+    properties:
+      name:
+        type: string
+      password:
+        type: string
+      refresh_token:
+        type: string
+      username:
+        type: string
+    type: object
+  models.AdminRes:
+    properties:
+      access_token:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      password:
+        type: string
+      refresh_token:
+        type: string
+      username:
+        type: string
+    type: object
+  models.ClientLoginReq:
+    properties:
+      first_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.ClientUpdateReq:
+    properties:
+      age:
+        type: integer
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.ClientsList:
+    properties:
+      clients:
+        items:
+          $ref: '#/definitions/models.ClientsResponse'
+        type: array
+    type: object
+  models.ClientsRequest:
+    properties:
+      age:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.ClientsResponse:
+    properties:
+      access_token:
+        type: string
+      age:
+        type: integer
+      created_at:
+        type: string
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.ClinicReq:
+    properties:
+      address:
+        type: string
+      image_link:
+        type: string
+      name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.ClinicRes:
+    properties:
+      address:
+        type: string
+      id:
+        type: integer
+      image_link:
+        type: string
+      name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.DoctorLoginReq:
+    properties:
+      phone_number:
+        type: string
+    type: object
+  models.DoctorLoginRes:
+    properties:
+      access_token:
+        type: string
+      clinic_id:
+        type: integer
+      first_name:
+        type: string
+      id:
+        type: integer
+      last_name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.DoctorReqForUI:
+    properties:
+      clinic_id:
+        type: integer
+      end_time:
+        type: string
+      experience:
+        type: integer
+      first_name:
+        type: string
+      floor:
+        type: integer
+      image_link:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      room_number:
+        type: integer
+      service_id:
+        type: integer
+      start_time:
+        type: string
+      work_day:
+        type: string
+    type: object
+  models.DoctorResInfo:
+    properties:
+      clinic_id:
+        type: integer
+      first_name:
+        type: string
+      id:
+        type: integer
+      image_link:
+        type: string
+      last_name:
+        type: string
+      service_id:
+        type: integer
+      work_day:
+        type: string
+    type: object
+  models.DoctorResponse:
+    properties:
+      clinic_id:
+        type: integer
+      created_at:
+        type: string
+      end_time:
+        type: string
+      experience:
+        type: integer
+      first_name:
+        type: string
+      floor:
+        type: integer
+      id:
+        type: integer
+      image_link:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      room_number:
+        type: integer
+      service_id:
+        type: integer
+      service_name:
+        type: string
+      start_time:
+        type: string
+      work_day:
+        type: string
+    type: object
+  models.Doctors:
+    properties:
+      doctors:
+        items:
+          $ref: '#/definitions/models.DoctorResInfo'
+        type: array
+    type: object
+  models.DoctorsList:
+    properties:
+      doctors:
+        items:
+          $ref: '#/definitions/models.DoctorResponse'
+        type: array
+    type: object
+  models.FileResponse:
+    properties:
+      media_type:
+        type: string
+      url:
+        type: string
+    type: object
+  models.GetCustomersOfDoctor:
+    properties:
+      client_id:
+        type: integer
+      doctor_id:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+      status:
+        type: string
+    type: object
+  models.KorikRequest:
+    properties:
+      client_id:
+        type: integer
+      diagnosis_id:
+        type: integer
+      doctor_id:
+        type: integer
+      file_url:
+        type: string
+    type: object
+  models.KorikResponse:
+    properties:
+      client_id:
+        type: integer
+      count:
+        type: integer
+      created_at:
+        type: string
+      diagnosis_id:
+        type: integer
+      doctor_id:
+        type: integer
+      file_url:
+        type: string
+      id:
+        type: integer
+    type: object
+  models.KoriksList:
+    properties:
+      koriks:
+        items:
+          $ref: '#/definitions/models.KorikResponse'
+        type: array
+    type: object
+  models.QueueReq:
+    properties:
+      client_id:
+        type: integer
+      doctor_id:
+        type: integer
+    type: object
+  models.QueueRes:
+    properties:
+      client_id:
+        type: integer
+      doctor_id:
+        type: integer
+      id:
+        type: integer
+      queue_number:
+        type: integer
+    type: object
+  models.ResponseMessage:
+    properties:
+      message:
+        type: string
+    type: object
+  models.ServicesRequest:
+    properties:
+      clinic_id:
+        type: integer
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  models.ServicesResponse:
+    properties:
+      clinic_id:
+        type: integer
+      id:
+        type: integer
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+  models.UpdateClinicReq:
+    properties:
+      address:
+        type: string
+      id:
+        type: integer
+      image_link:
+        type: string
+      name:
+        type: string
+      phone_number:
+        type: string
+    type: object
+  models.UpdateDoctor:
+    properties:
+      end_time:
+        type: string
+      experience:
+        type: integer
+      first_name:
+        type: string
+      floor:
+        type: integer
+      id:
+        type: integer
+      image_link:
+        type: string
+      last_name:
+        type: string
+      phone_number:
+        type: string
+      room_number:
+        type: integer
+      start_time:
+        type: string
+      work_day:
+        type: string
+    type: object
+  models.UpdateKorikRequest:
+    properties:
+      client_id:
+        type: integer
+      count:
+        type: integer
+      diagnosis_id:
+        type: integer
+      doctor_id:
+        type: integer
+      file_url:
+        type: string
+      id:
+        type: integer
+    type: object
+  models.UpdateServicesReq:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+info:
+  contact: {}
+  description: This is Clinic server api
+  termsOfService: 1 term Traffic Light
+  title: Clinic
+  version: "1.0"
+paths:
+  /admin:
+    post:
+      consumes:
+      - application/json
+      description: Create Admin
+      operationId: createadmin
+      parameters:
+      - description: CreateAdminInfo
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.AdminReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Admin data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.AdminRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Create Admin
+      tags:
+      - Admin
+  /admin/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Admin
+      operationId: getadminbyid
+      parameters:
+      - description: admin_id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Admin data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.AdminRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Get Admin
+      tags:
+      - Admin
+  /admin/login:
+    post:
+      consumes:
+      - application/json
+      description: Login Admin
+      operationId: loginadmin
+      parameters:
+      - description: AdminLogin
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/models.AdminLoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Admin data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.AdminRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Login Admin
+      tags:
+      - LOGIN
+  /admins:
+    get:
+      consumes:
+      - application/json
+      description: Get all  Admin
+      operationId: getadmin
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Admin data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/models.AdminRes'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Get all Admin
+      tags:
+      - Admin
+  /client:
+    post:
+      consumes:
+      - application/json
+      description: Create Client
+      operationId: createclient
+      parameters:
+      - description: ClientCreate
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/models.ClientsRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Client data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ClientsResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Create Client
+      tags:
+      - Client
+    put:
+      consumes:
+      - application/json
+      description: PUT Clients
+      operationId: putclients
+      parameters:
+      - description: UpdateClient
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.ClientUpdateReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Client data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ClientsList'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: PUT Clients
+      tags:
+      - Client
+  /client/{id}:
+    get:
+      consumes:
+      - application/json
+      description: GET Client
+      operationId: getclient
+      parameters:
+      - description: ClientID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Client data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ClientsResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: GET Client
+      tags:
+      - Client
+  /client/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: PUT Clients
+      operationId: deleteclients
+      parameters:
+      - description: clientID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Client data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ResponseMessage'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: PUT Clients
+      tags:
+      - Client
+  /client/login:
+    post:
+      consumes:
+      - application/json
+      description: Login Client
+      operationId: loginclient
+      parameters:
+      - description: ClientLogin
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/models.ClientLoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Client data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ClientsResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Login Client
+      tags:
+      - LOGIN
+  /clients:
+    get:
+      consumes:
+      - application/json
+      description: GET Clients
+      operationId: getclients
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Client data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ClientsList'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET Clients
+      tags:
+      - Client
+  /clinic:
+    post:
+      consumes:
+      - application/json
+      description: Create Clinic
+      operationId: createclinic
+      parameters:
+      - description: CreateClinicInfo
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.ClinicReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Clinic data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ClinicRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Create Clinic
+      tags:
+      - Clinic
+  /clinic/{id}:
+    get:
+      consumes:
+      - application/json
+      description: GET Clinic
+      operationId: getclinic
+      parameters:
+      - description: GetClinicInfo
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Clinic data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ClinicRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET Clinic
+      tags:
+      - Clinic
+  /clinics:
+    get:
+      consumes:
+      - application/json
+      description: GET Clinics
+      operationId: getclinics
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Clinics data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/models.ClinicRes'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: GET Clinics
+      tags:
+      - Clinic
+    put:
+      consumes:
+      - application/json
+      description: PUT Clinics
+      operationId: putclinic
+      parameters:
+      - description: UpdateClinics
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateClinicReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Client data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ClinicRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: PUT Clinics
+      tags:
+      - Clinic
+  /clinics/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: PUT Clinics
+      operationId: deleteclinics
+      parameters:
+      - description: clinicID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Clinic data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ResponseMessage'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: PUT Clinics
+      tags:
+      - Clinic
+  /doctor:
+    post:
+      consumes:
+      - application/json
+      description: Create Doctor
+      operationId: createdoctor
+      parameters:
+      - description: CreateAdminInfo
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.DoctorReqForUI'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Admin data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.DoctorResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Create Doctor
+      tags:
+      - Doctor
+  /doctor/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Doctor
+      operationId: getdoctorbyid
+      parameters:
+      - description: doctor_id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Doctor data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.DoctorResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get Doctor
+      tags:
+      - Doctor
+  /doctor/customers/{doctor_id}:
+    get:
+      consumes:
+      - application/json
+      operationId: getcustomersbydoctorid
+      parameters:
+      - description: doctor_id
+        in: path
+        name: doctor_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: customer data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.GetCustomersOfDoctor'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Get Doctor's customers
+      tags:
+      - Doctor
+  /doctor/login:
+    post:
+      consumes:
+      - application/json
+      description: Login Doctor
+      operationId: logindoctor
+      parameters:
+      - description: DoctorLogin
+        in: body
+        name: login
+        required: true
+        schema:
+          $ref: '#/definitions/models.DoctorLoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Doctor data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.DoctorLoginRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Login Doctor
+      tags:
+      - LOGIN
+  /doctor/service/{clinic_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Doctor by ServiceName
+      operationId: getdoctorsbyservicename
+      parameters:
+      - description: clinicID
+        in: path
+        name: clinic_id
+        required: true
+        type: integer
+      - description: ServiceName
+        in: query
+        name: servicename
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Doctor data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.Doctors'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get Doctor by ServiceName
+      tags:
+      - Doctor
+  /doctors:
+    put:
+      consumes:
+      - application/json
+      description: PUT Doctors
+      operationId: putdoctors
+      parameters:
+      - description: UpdateClient
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateDoctor'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Doctor data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ResponseMessage'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: PUT Doctors
+      tags:
+      - Doctor
+  /doctors/{clinic_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get all  Doctors List
+      operationId: getlistdoctor
+      parameters:
+      - description: ClinicID
+        in: path
+        name: clinic_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Doctor data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/models.DoctorsList'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get all Doctor
+      tags:
+      - Doctor
+  /doctors/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: DELETE Doctors
+      operationId: deletedoctor
+      parameters:
+      - description: doctorId
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Doctor data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ResponseMessage'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Delete Doctors
+      tags:
+      - Doctor
+  /doctors/search/{clinic_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get all  Doctor
+      operationId: getalldoctor
+      parameters:
+      - description: ClinicID
+        in: path
+        name: clinic_id
+        required: true
+        type: integer
+      - description: keyword
+        in: query
+        name: keyword
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Doctor data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/models.DoctorsList'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get all Doctor
+      tags:
+      - Doctor
+  /doctors/service/{service_id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Doctor by ServiceID
+      operationId: getdoctorsbyserviceid
+      parameters:
+      - description: serviceID
+        in: path
+        name: service_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Doctor data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.DoctorsList'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get Doctor by ServiceID
+      tags:
+      - Doctor
+  /korik:
+    get:
+      consumes:
+      - application/json
+      description: Get all Korik
+      operationId: getkorik
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Service data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/models.KoriksList'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Get all Korik
+      tags:
+      - Korik
+    post:
+      consumes:
+      - application/json
+      description: Create Korik
+      operationId: createkorik
+      parameters:
+      - description: CreateKorikInfo
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.KorikRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Korik data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.KorikResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Create Korik
+      tags:
+      - Korik
+    put:
+      consumes:
+      - application/json
+      description: PUT Korik
+      operationId: putkorik
+      parameters:
+      - description: UpdateKorik
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateKorikRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Korik data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.KorikResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: PUT Korik
+      tags:
+      - Korik
+  /korik/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Korik
+      operationId: getkorikbyid
+      parameters:
+      - description: korik_id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Korik data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.KorikResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Get Korik
+      tags:
+      - Korik
+  /korik/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: PUT Korik
+      operationId: korik
+      parameters:
+      - description: korikID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Korik data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ResponseMessage'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: PUT Korik
+      tags:
+      - Korik
+  /korik/user/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Korik
+      operationId: getkorikbyuserid
+      parameters:
+      - description: user_id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.KorikResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Get Korik
+      tags:
+      - Korik
+  /media/file-upload:
+    post:
+      consumes:
+      - application/json
+      description: File Upload
+      operationId: file-upload
+      parameters:
+      - description: image-upload
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: File-upload
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.FileResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: File Upload
+      tags:
+      - Media
+  /queue:
+    post:
+      consumes:
+      - application/json
+      description: Create Queue Request
+      operationId: createqueue
+      parameters:
+      - description: QueueCreate
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.QueueReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Queue data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.QueueRes'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Create Queue Request
+      tags:
+      - Queue
+  /queue/cancel:
+    delete:
+      consumes:
+      - application/json
+      description: Cancel Queue Request
+      operationId: cancelqueue
+      parameters:
+      - description: QueueCreate
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.QueueReq'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Cancel data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ResponseMessage'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Cancel Queue Request
+      tags:
+      - Queue
+  /service:
+    post:
+      consumes:
+      - application/json
+      description: Create Service
+      operationId: createservice
+      parameters:
+      - description: CreateServiceInfo
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.ServicesRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Service data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ServicesResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: Create Service
+      tags:
+      - Service
+    put:
+      consumes:
+      - application/json
+      description: PUT Services
+      operationId: putservices
+      parameters:
+      - description: UpdateServices
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateServicesReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Service data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ServicesResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: PUT Services
+      tags:
+      - Service
+  /service/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get Service
+      operationId: getservicebyid
+      parameters:
+      - description: service_id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Service data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ServicesResponse'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get Service
+      tags:
+      - Service
+  /service/delete/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: PUT Service
+      operationId: service
+      parameters:
+      - description: serviceID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Service data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/models.ResponseMessage'
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - BearerAuth: []
+      summary: PUT Service
+      tags:
+      - Service
+  /services:
+    get:
+      consumes:
+      - application/json
+      description: Get all Service
+      operationId: getservices
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Service data
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/models.ServicesResponse'
+                  type: array
+              type: object
+        "400":
+          description: Bad Request
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+        "500":
+          description: Server Error
+          schema:
+            allOf:
+            - $ref: '#/definitions/http.Response'
+            - properties:
+                data:
+                  type: string
+              type: object
+      summary: Get all Service
+      tags:
+      - Service
+securityDefinitions:
+  BearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"
